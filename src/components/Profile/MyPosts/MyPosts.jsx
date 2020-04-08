@@ -6,16 +6,19 @@ const MyPosts = (props) => {
     debugger;
     return (
         <div className={s.postsBlock}>
-            My posts
+            <h3>My posts</h3>
             <div>
-                <textarea></textarea>
-                <button>Add post</button>
-                <button>Remove</button>
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>Add post</button>
+                    <button>Remove</button>
+                </div>
             </div>
-            <div className = {s.posts}>
-                New post
-            <Post message = 'How are you?' likesCount = '15' />
-            <Post message = "It's my first post" likesCount = '10' />
+            <div className={s.posts}>
+                <Post message='How are you?' likesCount='15'/>
+                <Post message="It's my first post" likesCount='10'/>
             </div>
         </div>)
 }
