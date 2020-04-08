@@ -5,7 +5,7 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
     debugger;
     return (
-        <div>
+        <div className={s.postsBlock}>
             My posts
             <div>
                 <textarea></textarea>
