@@ -2,6 +2,11 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
+let postsData = [
+    {id: 1, message: "How are you?", likesCount: 15},
+    {id: 2, message: "It's my first post", likesCount: 10}
+]
+
 const MyPosts = (props) => {
     debugger;
     return (
@@ -17,8 +22,8 @@ const MyPosts = (props) => {
                 </div>
             </div>
             <div className={s.posts}>
-                <Post message='How are you?' likesCount='15'/>
-                <Post message="It's my first post" likesCount='10'/>
+                <Post message={postsData[0].message} likesCount={postsData[0].likesCount}/>
+                <Post message={postsData[1].message} likesCount={postsData[1].likesCount}/>
             </div>
         </div>)
 }
