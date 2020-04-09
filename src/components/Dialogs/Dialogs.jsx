@@ -29,7 +29,7 @@ let messagesData = [
     {id: 2, message: "How is it going?"},
     {id: 3, message: "Yo, man!"},
     {id: 4, message: "Yo!"},
-    {id: 5, message: "Yo"},
+    {id: 5, message: "Yo"}
 ]
 
 const Dialogs = (props) => {
@@ -44,11 +44,11 @@ const Dialogs = (props) => {
                 <DialogItem name={dialogsData[5].name} id={dialogsData[5].id}/>
             </div>
             <div className={s.messages}>
-                <Message message={messagesData[0].message} id={messagesData[0].id}/>
-                <Message message={messagesData[1].message} id={messagesData[1].id}/>
-                <Message message={messagesData[2].message} id={messagesData[2].id}/>
-                <Message message={messagesData[3].message} id={messagesData[3].id}/>
-                <Message message={messagesData[4].message} id={messagesData[4].id}/>
+                <Message message={messagesData[0].message}/>
+                <Message message={messagesData[1].message}/>
+                <Message message={messagesData[2].message}/>
+                <Message message={messagesData[3].message}/>
+                <Message message={messagesData[4].message}/>
             </div>
         </div>
     )
