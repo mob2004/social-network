@@ -5,10 +5,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import DialogItem from "./components/Dialogs/DialogItem/DialogItem";
 import state from './redux/state';
+import {addPost} from "./redux/state";
+
+//addPost('SamuraiJS.COM');
 
 ReactDOM.render(
   <React.StrictMode>
-    <App state = {state}/>
+    <App state = {state} addPost = {addPost} />
   </React.StrictMode>,
   document.getElementById('root')
 );
