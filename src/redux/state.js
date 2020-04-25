@@ -25,7 +25,8 @@ let state = {
             {id: 3, message: "Yo, man!"},
             {id: 4, message: "Yo!"},
             {id: 5, message: "Yo"}
-        ]
+        ],
+        newMessageText: 'ReactJS'
     }
 }
 
@@ -48,4 +49,18 @@ export let updateNewPostText = (newText) => {
     rerenderEntireTree(state);
 }
 
+export let addMessage = () => {
+    let newMessage = {
+        id: 6,
+        message: state.dialogsPage.newMessageText
+    };
+    state.dialogsPage.messages.unshift(newMessage);
+    state.dialogsPage.newMessageText = '';
+    rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (newMessage) => {
+    state.dialogsPage.newMessageText = newMessage;
+    rerenderEntireTree(state);
+}
 export default state;
