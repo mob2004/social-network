@@ -16,6 +16,9 @@ const Dialogs = (props) => {
         let text = newMessageElement.current.value;
         props.updateNewMessageText(text);
     }
+    let removeMessage = () => {
+        props.removeMessage();
+    }
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
@@ -32,6 +35,9 @@ const Dialogs = (props) => {
                 </div>
                 <div>
                     <button onClick = {addMessage} >Send message</button>
+                </div>
+                <div>
+                    <button onClick = {removeMessage} >Remove</button>
                 </div>
             </div>
         </div>
