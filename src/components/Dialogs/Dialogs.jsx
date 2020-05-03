@@ -10,14 +10,18 @@ const Dialogs = (props) => {
     let messagesElements = props.state.messages.map(m => <Message message={m.message}/>);
     let newMessageElement = React.createRef();
     let addMessage = () => {
-        props.addMessage();
+        //props.addMessage();
+        props.dispatch({type: 'ADD-MESSAGE'});
     }
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.updateNewMessageText(text);
+        //props.updateNewMessageText(text);
+        let action = {type: 'UPDATE-NEW-POST-TEXT', newMessage: text};
+        props.dispatch(action);
     }
     let removeMessage = () => {
-        props.removeMessage();
+        //props.removeMessage();
+        props.dispatch({type: 'REMOVE-MESSAGE'});
     }
     return (
         <div className={s.dialogs}>
