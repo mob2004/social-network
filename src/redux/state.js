@@ -1,3 +1,9 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const REMOVE_MESSAGE = 'REMOVE-MESSAGE';
+
 let store = {
     _state : {
         profilePage : {
@@ -33,7 +39,7 @@ let store = {
     },
 
     getState() {
-        return this._state;
+        return  this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer;
@@ -72,7 +78,7 @@ let store = {
         this._callSubscriber(this._state);
     },*/
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -82,11 +88,11 @@ let store = {
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
         }
-        else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
         }
-        else if (action.type === 'ADD-MESSAGE') {
+        else if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: this._state.dialogsPage.newMessageText.length,
                 message: this._state.dialogsPage.newMessageText
@@ -95,16 +101,31 @@ let store = {
             this._state.dialogsPage.newMessageText = '';
             this._callSubscriber(this._state);
         }
-        else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+        else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this._state.dialogsPage.newMessageText = action.newMessage;
             this._callSubscriber(this._state);
         }
-        else if (action.type === 'REMOVE-MESSAGE') {
+        else if (action.type === REMOVE_MESSAGE) {
             this._state.dialogsPage.messages.pop();
             this._callSubscriber(this._state);
         }
     }
 }
+
+/*export const addPostActionCreator = () => {
+    return {
+        type: ADD_POST
+    }
+} Below we have the same thing */
+export const addPostActionCreator = () => ({type: ADD_POST})
+
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+
+export let addMessageActionCreator = () => ({type: ADD_MESSAGE})
+
+export let updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text})
+
+export let removeMessageActionCreator = () => ({type: REMOVE_MESSAGE})
 
 window.store = store;
 export default store;
