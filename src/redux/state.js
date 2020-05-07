@@ -121,11 +121,11 @@ export const addPostActionCreator = () => ({type: ADD_POST})
 
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
-export let addMessageActionCreator = () => ({type: ADD_MESSAGE})
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE})
 
-export let updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text})
+export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessage: text})
 
-export let removeMessageActionCreator = () => ({type: REMOVE_MESSAGE})
+export const removeMessageActionCreator = () => ({type: REMOVE_MESSAGE})
 
 window.store = store;
 export default store;
