@@ -1,19 +1,30 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
 
 // initial initialization value if state is absent
 let initialState = {
-    posts: [
-        {id: 1, message: "How are you?", likesCount: 15},
-        {id: 2, message: "It's my first post", likesCount: 10},
-        {id: 3, message: "BlaBla", likesCount: 15},
-        {id: 4, message: "DaDa", likesCount: 19}
+    users: [
+        {id: 1, followed: false, fullName: 'Olzhas', status: 'I am a boss', location: {city: 'Almaty', country: 'Kazakhstan'}},
+        {id: 2, followed: true, fullName: 'Sasha', status: 'I am a boss too', location: {city: 'Moscow', country: 'Russia'}},
+        {id: 3, followed: false, fullName: 'Andrew', status: 'I am a boss too', location: {city: 'Kiev', country: 'Ukraine'}},
     ],
     newPostText: 'SamuraiJS'
 };
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
+        case FOLLOW:
+            let stateCopy = {
+                ...state,
+                //users: [...state.users]
+                users: state.users.map(u => {
+                    if (u.id === action.userID) {
+                        return {...u, followed: true}
+                    }
+                })
+            }
+        case UNFOLLOW:
+
         default:
             return state;
     }
@@ -21,6 +32,6 @@ const usersReducer = (state = initialState, action) => {
 
 export default usersReducer;
 
-export const addPostActionCreator = () => ({type: ADD_POST})
+export const followAC = (userID) => ({type: FOLLOW, userID})
 
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const unfollowAC = (userID) => ({type: UNFOLLOW, userID})
