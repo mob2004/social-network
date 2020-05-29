@@ -7,7 +7,7 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 // initial initialization value if state is absent
 let initialState = {
     users: [],
-    pageSize: 5,
+    pageSize: 100,
     totalUsersCount: 0,
     currentPage: 1
 };
